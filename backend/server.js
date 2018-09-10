@@ -1,5 +1,6 @@
 const express = require('express');
 const Sequelize = require('sequelize');
+const _USERS = require('./users.json');
 
 const app = express();
 const port = 3000;
@@ -14,50 +15,35 @@ const connection = new Sequelize('db', 'user', 'pass', {
   }
 });
 
-const User = connection.define(
-  'User',
-  {
-    uuid: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
-    first: Sequelize.STRING,
-    last: Sequelize.STRING,
-    full_name: Sequelize.STRING,
-    bio: Sequelize.TEXT
+const User = connection.define('User', {
+  name: Sequelize.STRING,
+  email: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+    }
   },
-  {
-    hooks: {
-      beforeValidate: () => {
-        console.log('before validate');
-      },
-      afterValidate: () => {
-        console.log('after validate');
-      },
-      beforeCreate: user => {
-        user.full_name = `${user.first} ${user.last}`;
-        console.log('before create');
-      },
-      afterCreate: () => {
-        console.log('after create');
-      }
+  password: {
+    type: Sequelize.STRING,
+    validate: {
+      isAlphanumeric: true
     }
   }
-);
+});
 
 connection
   .sync({
-    logging: console.log,
-    force: true
+    // logging: console.log,
+    // force: true
   })
   .then(() => {
-    User.create({
-      first: 'Joe',
-      last: 'Smith',
-      bio: 'New bio here'
-    });
+    User.bulkCreate(_USERS)
+      .then(users => {
+        console.log('Success adding users');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   })
   .then(() => {
     console.log('Connection to database established successfully');

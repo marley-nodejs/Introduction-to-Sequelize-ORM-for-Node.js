@@ -45,6 +45,22 @@ IDE - https://sqlitebrowser.org/
 
 ### 23. Hooks
 
+<br/>
+
+## 05 - Performing CRUD Operations
+
+<br/>
+
+### 26. Add_Sample_Data
+
+<br/>
+
+generatedata.com
+
+<br/>
+
+![Application](/img/pic5-1.png?raw=true)
+
 ---
 
 **Marley**
