@@ -41,6 +41,10 @@ IDE - https://sqlitebrowser.org/
 
 ![Application](/img/pic4-1.png?raw=true)
 
+<br/>
+
+### 23. Hooks
+
 ---
 
 **Marley**
