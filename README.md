@@ -2,7 +2,7 @@
 
 <br/>
 
-## 3 - Sequelize_Setup
+## 03 - Sequelize Setup
 
     $ mkdir backend
     $ cd backend/
@@ -16,7 +16,7 @@
 
     > Use a popular style guide
     > Google (https://github.com/google/eslint-config-google)
-    > What format do you want your config file to be in? JSON
+    > What format do you want your config file to be in? file
     > Would you like to install them now with npm? Yes
 
 <br/>
@@ -28,6 +28,18 @@ IDE - https://sqlitebrowser.org/
 <br/>
 
 ![Application](/img/pic3-1.png?raw=true)
+
+<br/>
+
+## 04 - Customize and Validate
+
+<br/>
+
+### 22. Validations
+
+<br/>
+
+![Application](/img/pic4-1.png?raw=true)
 
 ---
 
