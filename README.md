@@ -91,6 +91,20 @@ http://localhost:3000/findOne
 
     $ curl -X DELETE localhost:3000/remove
 
+<br/>
+
+## 06 - Associations
+
+<br/>
+
+### 35. Add belongsTo Association
+
+http://localhost:3000/allposts
+
+<br/>
+
+![Application](/img/pic6-1.png?raw=true)
+
 ---
 
 **Marley**

@@ -1,7 +1,7 @@
 const express = require('express');
 const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
-// const _USERS = require('./users.json');
+// const Op = Sequelize.Op;
+const _USERS = require('./users.json');
 
 const app = express();
 const port = 3000;
@@ -32,16 +32,22 @@ const User = connection.define('User', {
   }
 });
 
-app.get('/findall', (req, res) => {
-  User.findAll({
-    where: {
-      name: {
-        [Op.like]: 'Dem%'
-      }
-    }
+const Post = connection.define('Post', {
+  id: {
+    primaryKey: true,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4
+  },
+  title: Sequelize.STRING,
+  content: Sequelize.TEXT
+});
+
+app.get('/allposts', (req, res) => {
+  Post.findAll({
+    include: [User]
   })
-    .then(user => {
-      res.json(user);
+    .then(posts => {
+      res.json(posts);
     })
     .catch(error => {
       console.log(error);
@@ -49,69 +55,19 @@ app.get('/findall', (req, res) => {
     });
 });
 
-app.get('/findOne', (req, res) => {
-  User.findById('55')
-    .then(user => {
-      res.json(user);
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(404).send(error);
-    });
-});
-
-app.delete('/remove', (req, res) => {
-  User.destroy({
-    where: { id: 50 }
-  })
-    .then(() => {
-      res.send('User successful deleted');
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(404).send(error);
-    });
-});
-
-app.put('/update', (req, res) => {
-  User.update(
-    {
-      name: 'Michael Keaton',
-      password: 'password'
-    },
-    {
-      where: { id: 55 }
-    }
-  )
-    .then(rows => {
-      res.json(rows);
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(404).send(error);
-    });
-});
-
-app.post('/post', (req, res) => {
-  const newUser = req.body.user;
-
-  User.create({
-    name: newUser.name,
-    email: newUser.email
-  })
-    .then(user => {
-      res.json(user);
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(404).send(error);
-    });
-});
+Post.belongsTo(User);
 
 connection
   .sync({
     // logging: console.log,
     // force: true
+  })
+  .then(() => {
+    Post.create({
+      UserId: 1,
+      title: 'First post',
+      content: 'post content 1'
+    });
   })
   // .then(() => {
   //   User.bulkCreate(_USERS)
