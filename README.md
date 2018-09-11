@@ -147,6 +147,34 @@ http://localhost:3000/allposts
 
 ![Application](/img/pic6-5.png?raw=true)
 
+<br/>
+
+## 07 - Demo Application Using Angular
+
+https://github.com/jakblak/Sequelize_BookStore
+
+<br/>
+
+### 44. Project_Setup
+
+    # npm i -g @angular/cli
+    $ git clone https://github.com/jakblak/Sequelize_BookStore
+    $ cd Sequelize_BookStore/
+    $ npm install
+    $ npm start
+
+ <br/>
+
+![Application](/img/pic7-1.png?raw=true)
+
+ <br/>
+
+![Application](/img/pic7-2.png?raw=true)
+
+<br/>
+
+    http://localhost:3000/api/users/
+
 ---
 
 **Marley**
