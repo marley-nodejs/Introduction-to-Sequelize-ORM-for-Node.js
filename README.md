@@ -109,6 +109,14 @@ http://localhost:3000/allposts
 
 ### 36. Foreign Keys
 
+<br/>
+
+### 37. Model Alias
+
+<br/>
+
+![Application](/img/pic6-2.png?raw=true)
+
 ---
 
 **Marley**
