@@ -85,6 +85,12 @@ http://localhost:3000/findOne
 
     $ curl -X PUT localhost:3000/update
 
+<br/>
+
+### 31. Delete Entry
+
+    $ curl -X DELETE localhost:3000/remove
+
 ---
 
 **Marley**

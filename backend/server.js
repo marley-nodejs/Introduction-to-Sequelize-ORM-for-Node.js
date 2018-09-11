@@ -60,6 +60,19 @@ app.get('/findOne', (req, res) => {
     });
 });
 
+app.delete('/remove', (req, res) => {
+  User.destroy({
+    where: { id: 50 }
+  })
+    .then(() => {
+      res.send('User successful deleted');
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
 app.put('/update', (req, res) => {
   User.update(
     {
