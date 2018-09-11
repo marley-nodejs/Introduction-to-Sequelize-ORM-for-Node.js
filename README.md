@@ -73,6 +73,18 @@ generatedata.com
 
 ![Application](/img/pic5-2.png?raw=true)
 
+<br/>
+
+### 29. Find One Entry
+
+http://localhost:3000/findOne
+
+<br/>
+
+### 30. Update Entry
+
+    $ curl -X PUT localhost:3000/update
+
 ---
 
 **Marley**

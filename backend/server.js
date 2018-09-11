@@ -1,7 +1,7 @@
 const express = require('express');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
-const _USERS = require('./users.json');
+// const _USERS = require('./users.json');
 
 const app = express();
 const port = 3000;
@@ -42,6 +42,36 @@ app.get('/findall', (req, res) => {
   })
     .then(user => {
       res.json(user);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
+app.get('/findOne', (req, res) => {
+  User.findById('55')
+    .then(user => {
+      res.json(user);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
+app.put('/update', (req, res) => {
+  User.update(
+    {
+      name: 'Michael Keaton',
+      password: 'password'
+    },
+    {
+      where: { id: 55 }
+    }
+  )
+    .then(rows => {
+      res.json(rows);
     })
     .catch(error => {
       console.log(error);
