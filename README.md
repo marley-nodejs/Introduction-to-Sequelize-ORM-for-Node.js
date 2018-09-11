@@ -51,7 +51,7 @@ IDE - https://sqlitebrowser.org/
 
 <br/>
 
-### 26. Add_Sample_Data
+### 26. Add Sample Data
 
 <br/>
 
@@ -60,6 +60,18 @@ generatedata.com
 <br/>
 
 ![Application](/img/pic5-1.png?raw=true)
+
+<br/>
+
+### 27. Create Method
+
+<br/>
+
+### 28. Find All and Filter
+
+<br/>
+
+![Application](/img/pic5-2.png?raw=true)
 
 ---
 
