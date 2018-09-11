@@ -133,6 +133,20 @@ http://localhost:3000/allposts
 
 ![Application](/img/pic6-4.png?raw=true)
 
+<br/>
+
+### 40. Many-to-Many Association
+
+<br/>
+
+### 41. Many-to-Many Example
+
+    $ curl -X PUT localhost:3000/addWorker
+
+ <br/>
+
+![Application](/img/pic6-5.png?raw=true)
+
 ---
 
 **Marley**

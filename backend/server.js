@@ -38,6 +38,10 @@ const Comment = connection.define('Comment', {
   the_comment: Sequelize.STRING
 });
 
+const Project = connection.define('Project', {
+  title: Sequelize.STRING
+});
+
 app.get('/allposts', (req, res) => {
   Post.findAll({
     include: [
@@ -79,8 +83,45 @@ app.get('/singlepost', (req, res) => {
     });
 });
 
+app.put('/addWorker', (req, res) => {
+  Project.findById(2)
+    .then(project => {
+      project.addWorkers(5);
+    })
+    .then(() => {
+      res.send('User added');
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
+app.get('/getUserProjects', (req, res) => {
+  User.findAll({
+    attributes: ['name'],
+    include: [
+      {
+        model: Project,
+        as: 'Tasks',
+        attributes: ['title']
+      }
+    ]
+  })
+    .then(output => {
+      res.json(output);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
 Post.belongsTo(User, { as: 'UserRef', foreignKey: 'userId' });
 Post.hasMany(Comment, { as: 'All_Comments' });
+
+User.belongsToMany(Project, { as: 'Tasks', through: 'UserProjects' });
+Project.belongsToMany(User, { as: 'Workers', through: 'UserProjects' });
 
 connection
   .sync({
@@ -97,38 +138,51 @@ connection
       });
   })
   .then(() => {
-    Post.create({
-      userId: 1,
-      title: 'First post',
-      content: 'post content 1'
+    Project.create({
+      title: 'project 1'
+    }).then(project => {
+      project.setWorkers([4, 5]);
     });
   })
   .then(() => {
-    Post.create({
-      userId: 1,
-      title: 'Second post',
-      content: 'post content 2'
+    Project.create({
+      title: 'project 2'
     });
   })
-  .then(() => {
-    Post.create({
-      userId: 2,
-      title: 'Third post',
-      content: 'post content 3'
-    });
-  })
-  .then(() => {
-    Comment.create({
-      PostId: 1,
-      the_comment: 'first comment'
-    });
-  })
-  .then(() => {
-    Comment.create({
-      PostId: 1,
-      the_comment: 'second comment'
-    });
-  })
+
+  // .then(() => {
+  //   Post.create({
+  //     userId: 1,
+  //     title: 'First post',
+  //     content: 'post content 1'
+  //   });
+  // })
+  // .then(() => {
+  //   Post.create({
+  //     userId: 1,
+  //     title: 'Second post',
+  //     content: 'post content 2'
+  //   });
+  // })
+  // .then(() => {
+  //   Post.create({
+  //     userId: 2,
+  //     title: 'Third post',
+  //     content: 'post content 3'
+  //   });
+  // })
+  // .then(() => {
+  //   Comment.create({
+  //     PostId: 1,
+  //     the_comment: 'first comment'
+  //   });
+  // })
+  // .then(() => {
+  //   Comment.create({
+  //     PostId: 1,
+  //     the_comment: 'second comment'
+  //   });
+  // })
   .then(() => {
     console.log('Connection to database established successfully');
   })

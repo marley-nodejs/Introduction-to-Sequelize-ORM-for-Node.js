@@ -16,6 +16,7 @@
       }
     ],
     "arrow-parens": [2, "as-needed"],
-    "indent": [2, 2]
+    "indent": [2, 2],
+    "object-curly-spacing": [2, "always"]
   }
 }
