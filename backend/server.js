@@ -55,29 +55,29 @@ app.get('/allposts', (req, res) => {
     });
 });
 
-Post.belongsTo(User);
+Post.belongsTo(User, { foreignKey: 'userId' });
 
 connection
   .sync({
     // logging: console.log,
-    // force: true
-  })
-  .then(() => {
-    Post.create({
-      UserId: 1,
-      title: 'First post',
-      content: 'post content 1'
-    });
+    force: true
   })
   // .then(() => {
-  //   User.bulkCreate(_USERS)
-  //     .then(users => {
-  //       console.log('Success adding users');
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
+  //   Post.create({
+  //     UserId: 1,
+  //     title: 'First post',
+  //     content: 'post content 1'
+  //   });
   // })
+  .then(() => {
+    User.bulkCreate(_USERS)
+      .then(users => {
+        console.log('Success adding users');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  })
   .then(() => {
     console.log('Connection to database established successfully');
   })

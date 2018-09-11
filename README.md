@@ -105,6 +105,10 @@ http://localhost:3000/allposts
 
 ![Application](/img/pic6-1.png?raw=true)
 
+<br/>
+
+### 36. Foreign Keys
+
 ---
 
 **Marley**
