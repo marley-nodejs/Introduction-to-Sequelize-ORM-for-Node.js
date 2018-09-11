@@ -155,7 +155,7 @@ https://github.com/jakblak/Sequelize_BookStore
 
 <br/>
 
-### 44. Project_Setup
+### 44. Project Setup
 
     # npm i -g @angular/cli
     $ git clone https://github.com/jakblak/Sequelize_BookStore
