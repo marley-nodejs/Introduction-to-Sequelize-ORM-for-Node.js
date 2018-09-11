@@ -10,10 +10,7 @@ const connection = new Sequelize('db', 'user', 'pass', {
   host: 'localhost',
   dialect: 'sqlite',
   storage: 'db.sqlite',
-  operatorsAliases: false,
-  define: {
-    freezeTableName: true
-  }
+  operatorsAliases: false
 });
 
 const User = connection.define('User', {
@@ -33,13 +30,12 @@ const User = connection.define('User', {
 });
 
 const Post = connection.define('Post', {
-  id: {
-    primaryKey: true,
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4
-  },
   title: Sequelize.STRING,
   content: Sequelize.TEXT
+});
+
+const Comment = connection.define('Comment', {
+  the_comment: Sequelize.STRING
 });
 
 app.get('/allposts', (req, res) => {
@@ -60,7 +56,31 @@ app.get('/allposts', (req, res) => {
     });
 });
 
+app.get('/singlepost', (req, res) => {
+  Post.findById('1', {
+    include: [
+      {
+        model: Comment,
+        as: 'All_Comments',
+        attributes: ['the_comment']
+      },
+      {
+        model: User,
+        as: 'UserRef'
+      }
+    ]
+  })
+    .then(posts => {
+      res.json(posts);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
 Post.belongsTo(User, { as: 'UserRef', foreignKey: 'userId' });
+Post.hasMany(Comment, { as: 'All_Comments' });
 
 connection
   .sync({
@@ -81,6 +101,32 @@ connection
       userId: 1,
       title: 'First post',
       content: 'post content 1'
+    });
+  })
+  .then(() => {
+    Post.create({
+      userId: 1,
+      title: 'Second post',
+      content: 'post content 2'
+    });
+  })
+  .then(() => {
+    Post.create({
+      userId: 2,
+      title: 'Third post',
+      content: 'post content 3'
+    });
+  })
+  .then(() => {
+    Comment.create({
+      PostId: 1,
+      the_comment: 'first comment'
+    });
+  })
+  .then(() => {
+    Comment.create({
+      PostId: 1,
+      the_comment: 'second comment'
     });
   })
   .then(() => {

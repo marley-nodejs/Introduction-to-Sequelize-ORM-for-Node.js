@@ -117,6 +117,22 @@ http://localhost:3000/allposts
 
 ![Application](/img/pic6-2.png?raw=true)
 
+<br/>
+
+### 38. Types of Associations
+
+<br/>
+
+![Application](/img/pic6-3.png?raw=true)
+
+<br/>
+
+### 39. One-to-Many Association
+
+<br/>
+
+![Application](/img/pic6-4.png?raw=true)
+
 ---
 
 **Marley**
