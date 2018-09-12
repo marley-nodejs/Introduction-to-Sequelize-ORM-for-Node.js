@@ -12,11 +12,11 @@ require('./server/api')(app);
 
 db.sequelize
   .sync({
-    force: true
+    // force: true
   })
-  .then(() => {
-    seed.insert();
-  })
+  // .then(() => {
+  //   seed.insert();
+  // })
   .then(() => {
     app.listen(port, () => {
       console.log('running server on port ' + port);

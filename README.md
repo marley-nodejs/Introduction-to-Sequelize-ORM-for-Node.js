@@ -201,6 +201,14 @@ https://github.com/sequelize/express-example
 
     $ node server.js
 
+<br/>
+
+### 48. Show All Books
+
+ <br/>
+
+![Application](/img/pic7-3.png?raw=true)
+
 ---
 
 **Marley**
