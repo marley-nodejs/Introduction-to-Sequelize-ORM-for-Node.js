@@ -189,6 +189,12 @@ https://github.com/sequelize/express-example
     Executing (default): PRAGMA INDEX_LIST(`Favorites`)
     running server on port 3000
 
+<br/>
+
+### 46. Create Models
+
+    $ node server.js
+
 ---
 
 **Marley**
