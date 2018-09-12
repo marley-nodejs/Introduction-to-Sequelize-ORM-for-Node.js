@@ -233,6 +233,14 @@ https://github.com/sequelize/express-example
 
 ![Application](/img/pic7-6.png?raw=true)
 
+<br/>
+
+### 51. Display User Books
+
+<br/>
+
+![Application](/img/pic7-7.png?raw=true)
+
 ---
 
 **Marley**

@@ -16,7 +16,15 @@ exports.allUsers = (req, res) => {
 exports.singleUser = (req, res) => {
   let id = req.params.id;
 
-  models.User.findById(id)
+  models.User.findById(id, {
+    include: [
+      {
+        model: models.Book,
+        as: 'Reading',
+        attributes: ['title', 'author']
+      }
+    ]
+  })
     .then(user => {
       res.json(user);
     })
