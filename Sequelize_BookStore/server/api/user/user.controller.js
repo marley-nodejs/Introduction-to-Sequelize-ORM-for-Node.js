@@ -53,3 +53,16 @@ exports.saveUserFav = (req, res) => {
       res.status(404).send(error);
     });
 };
+
+exports.saveUser = (req, res) => {
+  let name = req.body.name;
+
+  models.User.create({ name })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+};

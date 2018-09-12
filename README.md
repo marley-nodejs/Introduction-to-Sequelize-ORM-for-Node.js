@@ -249,6 +249,14 @@ https://github.com/sequelize/express-example
 
 ![Application](/img/pic7-8.png?raw=true)
 
+<br/>
+
+### 53. Add New User
+
+<br/>
+
+![Application](/img/pic7-9.png?raw=true)
+
 ---
 
 **Marley**
