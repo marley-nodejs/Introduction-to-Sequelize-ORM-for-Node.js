@@ -205,9 +205,25 @@ https://github.com/sequelize/express-example
 
 ### 48. Show All Books
 
- <br/>
+    $ npm start
+
+<br/>
 
 ![Application](/img/pic7-3.png?raw=true)
+
+<br/>
+
+### 49. Single User Route
+
+    $ npm start
+
+<br/>
+
+![Application](/img/pic7-4.png?raw=true)
+
+<br/>
+
+![Application](/img/pic7-5.png?raw=true)
 
 ---
 
