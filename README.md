@@ -175,6 +175,20 @@ https://github.com/jakblak/Sequelize_BookStore
 
     http://localhost:3000/api/users/
 
+<br/>
+
+### 45. Database Setup
+
+    $ cd Sequelize_BookStore/
+    $ npm install --save sequelize sqlite3
+
+https://github.com/sequelize/express-example
+
+    $ node server.js
+    Executing (default): CREATE TABLE IF NOT EXISTS `Favorites` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `title` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+    Executing (default): PRAGMA INDEX_LIST(`Favorites`)
+    running server on port 3000
+
 ---
 
 **Marley**
