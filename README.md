@@ -241,6 +241,14 @@ https://github.com/sequelize/express-example
 
 ![Application](/img/pic7-7.png?raw=true)
 
+<br/>
+
+### 52. Save User Favorite
+
+<br/>
+
+![Application](/img/pic7-8.png?raw=true)
+
 ---
 
 **Marley**
