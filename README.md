@@ -225,6 +225,14 @@ https://github.com/sequelize/express-example
 
 ![Application](/img/pic7-5.png?raw=true)
 
+<br/>
+
+### 50. Save User Book
+
+<br/>
+
+![Application](/img/pic7-6.png?raw=true)
+
 ---
 
 **Marley**
