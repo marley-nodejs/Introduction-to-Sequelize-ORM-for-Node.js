@@ -195,6 +195,12 @@ https://github.com/sequelize/express-example
 
     $ node server.js
 
+<br/>
+
+### 47. Seed Database
+
+    $ node server.js
+
 ---
 
 **Marley**

@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('./server/models/db');
 const app = express();
+const seed = require('./server/models/seed/seed-db');
 const port = 3000;
 
 // setup the Express middlware
@@ -12,6 +13,9 @@ require('./server/api')(app);
 db.sequelize
   .sync({
     force: true
+  })
+  .then(() => {
+    seed.insert();
   })
   .then(() => {
     app.listen(port, () => {
